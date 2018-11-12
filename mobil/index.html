@@ -3,19 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
-	<script src="pwabuilder-sw-register.js"></script>
+    <script src="pwabuilder-sw-register.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Huset kbh. events</title>
 
-   	<link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="manifest.json">
     <link href="appStyles.css" rel="stylesheet" type="text/css">
     <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="start_url" content="/huset/mobil">
-<meta name="apple-mobile-web-app-title" content="HUSET KBH">
-<link rel="apple-touch-icon" sizes="192x192" href="img/icon.png">
-<link rel="apple-touch-icon" sizes="144x144" href="img/icon@0.75x.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="start_url" content="/huset/mobil">
+    <meta name="apple-mobile-web-app-title" content="HUSET KBH">
+    <link rel="apple-touch-icon" sizes="192x192" href="img/icon.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/icon@0.75x.png">
 
 
 
@@ -23,29 +23,33 @@
         .subcat {
             display: none;
         }
-
     </style>
 </head>
 
 <body>
     <div class="maincontainer">
         <header>
-            <div class="logo"><h1>DET SKER I HUSET KBH</h1></div>
-
-
-        <div>
-            <button id="filterall">Alle</button>
-            <button id="filtermusik">Musik</button>
-            <button id="filterfilm">Film</button>
-            <div class="subcat">
-                <button id="jazz">Jazz</button>
-                <button id="rock">Rock</button>
-                <button id="alt">Alt</button>
-                <button id="folk">Folk</button>
-                <button id="pop">Pop</button>
+            <div class="logo">
+                <h1>DET SKER I HUSET KBH</h1>
             </div>
 
-        </div>
+
+            <div>
+                <button id="filterall">Alle</button>
+                <button id="filtermusik">Musik</button>
+                <button id="filterfilm">Film</button>
+
+                <button id="filterkontakt">Kontakt</button>
+                <button id="filteraabningstider">Åbningstider</button>
+                <div class="subcat">
+                    <button id="jazz">Jazz</button>
+                    <button id="rock">Rock</button>
+                    <button id="alt">Alt</button>
+                    <button id="folk">Folk</button>
+                    <button id="pop">Pop</button>
+                </div>
+
+            </div>
         </header>
         <article id="eventscontainer"></article>
     </div>
@@ -79,13 +83,13 @@
             });
 
 
-            function valgte(vc,genre) {
+            function valgte(vc, genre) {
                 mitValg = events.filter(function(e) {
                     return e.categories.includes(vc);
 
                 });
-                console.log(mitValg,genre);
-                visValgte(mitValg,genre);
+                console.log(mitValg, genre);
+                visValgte(mitValg, genre);
             }
 
 
@@ -93,7 +97,7 @@
 
             document.querySelector('#filtermusik').addEventListener("click", function(e) {
                 visValgte(musik, "musik");
-				//console.log("target",e.target.id);
+                //console.log("target",e.target.id);
             });
             document.querySelector('#filterfilm').addEventListener("click", function() {
                 visValgte(film, "film");
@@ -102,19 +106,19 @@
                 visValgte(events, "all");
             });
             document.querySelector('#jazz').addEventListener("click", function() {
-                valgte(21,"musik");
+                valgte(21, "musik");
             });
             document.querySelector('#rock').addEventListener("click", function() {
-                valgte(20,"musik");
+                valgte(20, "musik");
             });
             document.querySelector('#alt').addEventListener("click", function() {
-                valgte(24,"musik");
+                valgte(24, "musik");
             });
             document.querySelector('#folk').addEventListener("click", function() {
-                valgte(23,"musik");
+                valgte(23, "musik");
             });
             document.querySelector('#pop').addEventListener("click", function() {
-                valgte(22,"musik");
+                valgte(22, "musik");
             });
 
         }
@@ -150,8 +154,49 @@
 
         //læs script når DOM er hentet
         document.addEventListener("DOMContentLoaded", getJson);
-
     </script>
+    <section id="filterkontakt">
+
+
+        <h1>Kontakt </h1>
+        <p>
+            Kontakt HUSET-KBH. Du kan finde os på Rådhusstræde 13. 1466 København K. Du kan også ringe til os på Tlf: 21 51 21 51 eller kigge forbi vores hjemmeside på: info@huset-kbh.dk.
+            <br> Du kan også komme forbi os! Husets reception har åbent for henvendelser i hverdage ml. 11.00-15. Vi ses i HUSET!
+
+
+            <br> HUSET-KBH Rådhusstræde 13
+            <br> 1466 København K
+            <br> Tlf: 21 51 21 51
+            <br> info@huset-kbh.dk
+            <br> Husets reception har åbent for henvendelser i hverdage ml. 11.00-15.00.
+
+        </p>
+
+    </section>
+    <section id="filteraabningstider">
+
+
+        <h1> Åbningstider</h1>
+        <p>
+            Huset-KBH har varierende åbningstider. Se åbningstider for de enkelte events i kalenderen
+
+        </p>
+        <br>
+        <h2> Åbningstider for Husets Reception</h2>
+        Husets reception har åbent for henvendelser i hverdage ml. 11.00-15.00. <br>Husets reception har åbent for henvendelser i hverdage ml. 11.00-15.00.
+
+        <br>
+
+        <h2>Bastard Café</h2>
+        <p>
+            Mandag-torsdag: 12.00-00.00 Fredag-lørdag: 12.00-02.00 Søndag: 12.00-00.00
+            <br> </p>
+
+        <h2> Spisehuset Fair </h2>
+        <p> Tirsdag-lørdag: 17.00-22.00 </p>
+
+    </section>
+
 </body>
 
 </html>
